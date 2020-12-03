@@ -47,10 +47,18 @@ class Input
      */
     private function downloadInput(int $day, string $path): void
     {
+        $url = "https://adventofcode.com/2020/day/{$day}/input";
         $context = stream_context_create(
             ['http' => ['header' => "Cookie: session={$this->session->getId()}\r\n"]]
         );
-        $source = fopen("https://adventofcode.com/2020/day/{$day}/input", 'r', false, $context);
+
+        $headers = get_headers($url, 1, $context);
+        [, $responseCode,] = explode(' ', $headers[0]);
+        if ($responseCode !== '200') {
+            throw new \RuntimeException("Failed to download input for day {$day}. Responded with {$responseCode}.");
+        }
+
+        $source = fopen($url, 'r', false, $context);
         $target = fopen($path, 'w');
         stream_copy_to_stream($source, $target);
         fclose($source);
