@@ -15,5 +15,7 @@
       "Codehulk\\AdventOfCode2020\\": "src/"
     }
   },
-  "require": {}
+  "require": {
+    "php": "~7.4.0"
+  }
 }
