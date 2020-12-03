@@ -1,1 +1,4 @@
-.idea/
+/.idea/
+/data/
+/vendor/
+session.key

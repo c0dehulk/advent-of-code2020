@@ -1,0 +1,19 @@
+{
+  "name": "codehulk/advent-of-code2020",
+  "description": "Solutions to https://adventofcode.com for 2020",
+  "version": "2020.0.0",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rob Piper",
+      "email": "id+github@codehulk.co.uk"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Codehulk\\AdventOfCode2020\\": "src/"
+    }
+  },
+  "require": {}
+}
