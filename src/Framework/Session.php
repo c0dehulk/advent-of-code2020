@@ -13,14 +13,22 @@ class Session
     /**
      * Constructor.
      *
-     * @param string  $path
+     * @param string $path
      */
     public function __construct(string $path)
     {
         $this->path = $path;
     }
 
-    public function getId(): string {
-        return trim(file_get_contents($this->path) ?: '');
+    public function getId(): string
+    {
+        if (!realpath($this->path)) {
+            throw new \RuntimeException("No session key set in `{$this->path}`.");
+        }
+        $key = trim(file_get_contents($this->path) ?: '');
+        if (!$key) {
+            throw new \RuntimeException("No session key set in `{$this->path}`.");
+        }
+        return $key;
     }
 }

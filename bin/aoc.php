@@ -13,4 +13,6 @@ $day = (int) $day;
 $part = (int) $part;
 
 $app = new Application(__DIR__ . '/..');
-$app->runSolution($day, $part);
+$exitCode = $app->runSolution($day, $part);
+
+exit($exitCode);
