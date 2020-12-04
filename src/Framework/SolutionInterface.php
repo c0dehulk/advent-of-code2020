@@ -10,11 +10,11 @@ namespace Codehulk\AdventOfCode2020\Framework;
 interface SolutionInterface
 {
     /**
-     * (Description)
+     * Runs a solution, and returns the output.
      *
-     * @param string $input
+     * @param string $input The puzzle input.
      *
-     * @return string
+     * @return mixed
      */
-    public function run(string $input): string;
+    public function run(string $input, Output $output);
 }

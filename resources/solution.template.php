@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace Codehulk\AdventOfCode2020\Day%%DAY%%;
 
+use Codehulk\AdventOfCode2020\Framework\Output;
 use Codehulk\AdventOfCode2020\Framework\SolutionInterface;
 
 /**
@@ -13,7 +14,7 @@ class Part%%PART%% implements SolutionInterface
     /**
      * @inheritDoc
      */
-    public function run(string $input): string
+    public function run(string $input, Output $output)
     {
         return 'You need to solve me first!';
     }

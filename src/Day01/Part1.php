@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace Codehulk\AdventOfCode2020\Day01;
 
+use Codehulk\AdventOfCode2020\Framework\Output;
 use Codehulk\AdventOfCode2020\Framework\SolutionInterface;
 
 /**
@@ -13,7 +14,7 @@ class Part1 implements SolutionInterface
     /**
      * @inheritDoc
      */
-    public function run(string $input): string
+    public function run(string $input, Output $output)
     {
         $numbersF = array_filter(explode("\n", $input));
         sort($numbersF);
@@ -28,7 +29,7 @@ class Part1 implements SolutionInterface
                     break;
                 }
                 if ($first + $last == 2020) {
-                    return (string) ($first * $last);
+                    return $first * $last;
                 }
             }
         }

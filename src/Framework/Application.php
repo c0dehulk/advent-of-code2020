@@ -23,6 +23,7 @@ class Application
 
     public function runSolution(int $day, int $part): int
     {
+        $output = new Output();
         try {
             $path = new Path($this->path . '/src', 2020, $day, $part);
 
@@ -37,16 +38,17 @@ class Application
             );
 
             $answer = $solution->run(
-                $input->getInput($day)
+                $input->getInput($day),
+                $output,
             );
         } catch (Throwable $e) {
-            echo "Fatal Error!\n";
-            echo get_class($e) . "\n";
-            echo $e->getMessage() . "\n";
+            $output->writeLn('Fatal Error!');
+            $output->writeln($e);
+            $output->writeln($e->getMessage());
             return 1;
         }
 
-        echo "Answer: {$answer}\n";
+        $output->writeValues('Answer', $answer);
         return 0;
     }
 }

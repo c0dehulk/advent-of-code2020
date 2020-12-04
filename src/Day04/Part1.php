@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace Codehulk\AdventOfCode2020\Day04;
 
+use Codehulk\AdventOfCode2020\Framework\Output;
 use Codehulk\AdventOfCode2020\Framework\SolutionInterface;
 
 /**
@@ -13,7 +14,7 @@ class Part1 implements SolutionInterface
     /**
      * @inheritDoc
      */
-    public function run(string $input): string
+    public function run(string $input, Output $output)
     {
         $valid = 0;
         $required = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
@@ -25,6 +26,6 @@ class Part1 implements SolutionInterface
                 $valid++;
             }
         }
-        return (string) $valid;
+        return $valid;
     }
 }

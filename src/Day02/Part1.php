@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace Codehulk\AdventOfCode2020\Day02;
 
+use Codehulk\AdventOfCode2020\Framework\Output;
 use Codehulk\AdventOfCode2020\Framework\SolutionInterface;
 
 /**
@@ -13,7 +14,7 @@ class Part1 implements SolutionInterface
     /**
      * @inheritDoc
      */
-    public function run(string $input): string
+    public function run(string $input, Output $output)
     {
         $rows = array_filter(explode("\n", $input));
         $valid = 0;
@@ -27,6 +28,6 @@ class Part1 implements SolutionInterface
                 $valid++;
             }
         }
-        return (string) $valid;
+        return $valid;
     }
 }

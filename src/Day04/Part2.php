@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace Codehulk\AdventOfCode2020\Day04;
 
+use Codehulk\AdventOfCode2020\Framework\Output;
 use Codehulk\AdventOfCode2020\Framework\SolutionInterface;
 
 /**
@@ -13,7 +14,7 @@ class Part2 implements SolutionInterface
     /**
      * @inheritDoc
      */
-    public function run(string $input): string
+    public function run(string $input, Output $output)
     {
         $valid = 0;
 
@@ -35,25 +36,25 @@ class Part2 implements SolutionInterface
             $optional = 0;
 
             foreach ($matches as [,$id, $value]) {
-                echo "$id = $value\n";
+                $output->writeValues($id, $value);
 
                 if (!isset($required[$id])) {
                     $optional++;
                     continue;
                 }
                 if (!preg_match($required[$id], $value)) {
-                    echo "Field $id failed validation with `$value`.\n";
+                    $output->writeLn("Field $id failed validation with `$value`.");
                     continue 2;
                 }
             }
             // Filter out passports with not enough fields.
             $validFieldCount = count($matches) - $optional;
-            echo "Valid fields: $validFieldCount\n";
+            $output->writeValues('Valid fields', $validFieldCount);
             if ($validFieldCount < 7) {
                 continue;
             }
             $valid++;
         }
-        return (string) $valid;
+        return $valid;
     }
 }

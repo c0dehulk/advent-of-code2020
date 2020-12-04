@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace Codehulk\AdventOfCode2020\Day03;
 
+use Codehulk\AdventOfCode2020\Framework\Output;
 use Codehulk\AdventOfCode2020\Framework\SolutionInterface;
 
 /**
@@ -13,7 +14,7 @@ class Part2 implements SolutionInterface
     /**
      * @inheritDoc
      */
-    public function run(string $input): string
+    public function run(string $input, Output $output)
     {
         $rows = array_filter(explode("\n", $input));
 
@@ -23,7 +24,7 @@ class Part2 implements SolutionInterface
         $r7d1 = $this->getTreesOnSlope($rows, 7, 1);
         $r1d2 = $this->getTreesOnSlope($rows, 1, 2);
 
-        return (string) ($r1d1 * $r3d1 * $r5d1 * $r7d1 * $r1d2);
+        return $r1d1 * $r3d1 * $r5d1 * $r7d1 * $r1d2;
     }
 
     private function getTreesOnSlope($rows, $x, $y): int

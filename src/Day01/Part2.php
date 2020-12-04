@@ -3,6 +3,7 @@ declare(strict_types = 1);
 
 namespace Codehulk\AdventOfCode2020\Day01;
 
+use Codehulk\AdventOfCode2020\Framework\Output;
 use Codehulk\AdventOfCode2020\Framework\SolutionInterface;
 
 /**
@@ -13,7 +14,7 @@ class Part2 implements SolutionInterface
     /**
      * @inheritDoc
      */
-    public function run(string $input): string
+    public function run(string $input, Output $output)
     {
         $numbers = array_filter(explode("\n", $input));
         sort($numbers);
@@ -23,7 +24,7 @@ class Part2 implements SolutionInterface
             for ($y = 0; $y <= $last; $y++) {
                 for ($z = 0; $z <= $last; $z++) {
                     if ($numbers[$x] + $numbers[$y] + $numbers[$z] == 2020) {
-                        return (string) ($numbers[$x] * $numbers[$y] * $numbers[$z]);
+                        return $numbers[$x] * $numbers[$y] * $numbers[$z];
                     }
                 }
             }
