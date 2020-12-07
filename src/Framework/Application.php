@@ -45,6 +45,7 @@ class Application
             $output->writeLn('Fatal Error!');
             $output->writeln($e);
             $output->writeln($e->getMessage());
+            $output->writeln($e->getFile() . ':' . $e->getLine());
             return 1;
         }
 
