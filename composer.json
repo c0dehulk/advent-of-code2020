@@ -15,7 +15,13 @@
       "Codehulk\\AdventOfCode2020\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Codehulk\\AdventOfCode2020\\": "tests/"
+    }
+  },
   "require": {
-    "php": "~7.4.0"
+    "php": "~7.4.0",
+    "phpunit/phpunit": "^9.5"
   }
 }
